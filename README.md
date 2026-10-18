@@ -42,9 +42,13 @@ lines with no word marks.
 
 ## Verification
 
-The diff engine was tested with 24 automated checks covering: identical input,
+The diff engine was tested with 30 automated checks covering: identical input,
 empty versus non-empty input, hand-counted line diffs, word-level highlighting
 (one-word change flags only that word), the ignore-whitespace and ignore-case
-toggles, unified-diff output format, swap, the sample loader, hidden-line
-collapsing, and a headless-Chromium pass over the real page with zero console
-or page errors.
+toggles, unified-diff output format, the 16M-cell comparison guard,
+prefix/suffix trimming on large inputs, the word-level cap on huge lines,
+CRLF handling, and HTML escaping. A further 18 headless-Chromium checks
+exercised the real page: sample loading, stats bar, word marks,
+collapse/expand of unchanged lines, toggles, swap, export content, live
+typing, empty inputs, and the too-large message, with zero console or page
+errors.
